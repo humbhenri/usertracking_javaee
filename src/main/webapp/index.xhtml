@@ -2,13 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"      
-      xmlns:h="http://java.sun.com/jsf/html">
- 
-    <h:head>
-        <title>JSF 2.0 Hello World</title>
-    </h:head>
-    <h:body>
-    	<h3>#{helloWorld.message}</h3>
-    </h:body>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body>
+	<h:link value="Add user" outcome="addUser" />
+	<br />
+	<h:dataTable value="#{userList.users}" var="user">
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">ID</f:facet>
+    				TODO
+    			</h:column>
+
+		<h:column>
+			<f:facet name="header">First name</f:facet>
+    				#{user.firstName}
+    			</h:column>
+
+		<h:column>
+			<f:facet name="header">Last name</f:facet>
+    				#{user.lastName}
+    			</h:column>
+
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+    				#{user.email}
+ 			</h:column>
+ 			
+ 		<h:column>
+ 				<f:facet name="header">Birthday</f:facet>
+ 				#{user.birthDate}
+ 		</h:column>
+ 		
+ 		<h:column>
+ 				<f:facet name="header">Edit</f:facet>
+ 				TODO
+ 		</h:column>
+ 		
+ 		<h:column>
+ 				<f:facet name="header">Delete</f:facet>
+ 				TODO
+ 		</h:column>
+
+	</h:dataTable>
+</h:body>
 </html>

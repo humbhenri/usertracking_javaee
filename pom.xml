@@ -64,11 +64,12 @@
         <artifactId>maven-jetty-plugin</artifactId>
         <version>${jetty-maven-plugin.version}</version>
         <configuration>
+          <contextPath>/app</contextPath>
           <webAppConfig>
             <defaultsDescriptor>${basedir}/src/main/webapp/WEB-INF/webdefault.xml</defaultsDescriptor>
             <baseResource implementation="org.mortbay.resource.ResourceCollection">
               <resourcesAsCSV>${basedir}/target/main/webapp,${basedir}/src/main/webapp</resourcesAsCSV>
-            </baseResource>
+            </baseResource> 
           </webAppConfig>
           <connectors>
             <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">

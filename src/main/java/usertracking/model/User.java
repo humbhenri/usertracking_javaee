@@ -76,4 +76,10 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "User [firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", email="
+                + email + ", id=" + id + "]";
+    }
+
 }

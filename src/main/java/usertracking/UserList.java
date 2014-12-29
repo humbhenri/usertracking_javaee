@@ -3,7 +3,7 @@ package usertracking;
 import java.text.ParseException;
 import java.util.List;
 
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 

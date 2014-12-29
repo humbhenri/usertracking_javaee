@@ -1,22 +1,23 @@
 package usertracking;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import usertracking.dao.UserDAO;
 import usertracking.model.User;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class UserList {
 
+    @Inject
+    private UserDAO userDAO;
+
     public List<User> getUsers() throws ParseException {
-        List<User> users = new ArrayList<User>();
-        User u = new User("Humberto", "Pinheiro", "humbhenri@gmail.com",
-                new SimpleDateFormat("dd/MM/yy").parse("04/05/1985"));
-        users.add(u);
-        return users;
+        return userDAO.findAll();
     }
 }

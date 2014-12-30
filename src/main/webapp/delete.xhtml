@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:metadata>
+	<f:viewParam name="user" value="#{userDelete.user}"
+		converter="#{userConverter}" />
+</f:metadata>
+
+<h:head>
+	<title>Delete user</title>
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<p>
+			Delete user
+			<h:outputText value="#{userDelete.user.firstName}" />
+			?
+		</p>
+		<h:commandButton type="submit" value="Confirm"
+			action="#{userDelete.delete}" />
+		<h:link outcome="index" value="Cancel" />
+	</h:form>
+</h:body>
+
+</html>

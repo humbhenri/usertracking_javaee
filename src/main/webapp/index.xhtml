@@ -9,14 +9,14 @@
 	<title>JSF 2.0 Hello World</title>
 </h:head>
 <h:body>
-	<h:link value="Add user" outcome="addUser" />
+	<h:link value="Add user" outcome="userEdit" />
 	<br />
 	<h:dataTable value="#{userList.users}" var="user">
 
 		<h:column>
 			<!-- column header -->
 			<f:facet name="header">ID</f:facet>
-    				TODO
+    				#{user.id}
     			</h:column>
 
 		<h:column>
@@ -43,7 +43,9 @@
  		
  		<h:column>
  				<f:facet name="header">Edit</f:facet>
- 				TODO
+ 				<h:link outcome="userEdit" value="Edit">
+                        <f:param name="user" value="#{user.id}"/>
+                </h:link>
  		</h:column>
  		
  		<h:column>

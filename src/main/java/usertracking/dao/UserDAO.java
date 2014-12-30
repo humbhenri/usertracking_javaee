@@ -1,5 +1,6 @@
 package usertracking.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,7 +9,7 @@ import javax.persistence.Query;
 
 import usertracking.model.User;
 
-public class UserDAO {
+public class UserDAO implements Serializable {
 
     @Inject
     private EntityManager em;
@@ -30,6 +31,12 @@ public class UserDAO {
         q.setParameter("id", user.getId());
         q.executeUpdate();
         em.getTransaction().commit();
+    }
+
+    public User findById(Integer id) {
+        Query q = em.createQuery("from User u where u.id = :id");
+        q.setParameter("id", id);
+        return (User) q.getSingleResult();
     }
 
 }
